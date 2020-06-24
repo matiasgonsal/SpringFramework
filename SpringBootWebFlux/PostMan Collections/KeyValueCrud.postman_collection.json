@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "dbc8d54c-7558-466e-a3a0-725760f60744",
+		"name": "KeyValueCrud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createParameters",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"parameterKey\": \"Siebel.Legacy.Endpoint\",\n    \"parameterValue\": \"http://siebelEndpoint:3820\"\n  },\n  {\n    \"parameterKey\": \"assignment.backend.service\",\n    \"parameterValue\": \"http://assignment\"\n  }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/createParameters",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"createParameters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getParameters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/getParameters",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"getParameters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteParameters",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/deleteParameters",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"deleteParameters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteParametersById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/deleteParameters/Siebel.Legacy.Endpoint",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"deleteParameters",
+						"Siebel.Legacy.Endpoint"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getParametersById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/getParameters/Siebel.Legacy.Endpoint",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"getParameters",
+						"Siebel.Legacy.Endpoint"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

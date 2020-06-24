@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "e8b78af6-bcb8-4d4e-9a8e-64f13b8e9939",
+		"name": "ParameterManager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getParameterManagers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/v1/parameterManager/getParameters",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"parameterManager",
+						"getParameters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getParameterManagers (POST)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"parameterKey\": \"assignment.backend.service\"\n    },\n    {\n        \"parameterKey\": \"Siebel.Legacy.Endpoint\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/v1/parameterManager/getParameters",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"parameterManager",
+						"getParameters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createParameterManagers",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"parameterKey\": \"pla.endpoint\",\n        \"parameterValue\": \"http://pla:8080\"\n    },\n    {\n        \"parameterKey\": \"assessment.creation.type.clone\",\n        \"parameterValue\": \"CLONE\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/v1/parameterManager/createParameters",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"parameterManager",
+						"createParameters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getParameterManagerById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/v1/parameterManager/getParameters/pla.endpoint",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"parameterManager",
+						"getParameters",
+						"pla.endpoint"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

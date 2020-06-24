@@ -1,0 +1,49 @@
+spring Webflux
+
+Reactor Library: Project Reactor:
+https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html
+
+------------------------------------------------------------------------------------------------------------------------
+SpringBoot Application Dependencies:
+
+Non-Blocking WebFlux CRUD API:
+Reactive Web
+Reactive MongoDB
+Lombok
+EmbeddedMongo DB
+
+Non-Blocking WebFlux Client to call Non_Blocking APIs:
+Reactive Web
+Lombok
+------------------------------------------------------------------------------------------------------------------------
+Couchbase:
+docker run -t --name db -p 8091-8094:8091-8094 -p 11210:11210 couchbase/server-sandbox:6.5.0
+
+localhost:8091
+Login credentials: Administrator / password
+
+Create Bucket: KeyValueParameter
+Create View: designDoc = "parameterDocument", ViewName = "all" (This view must be created to query based on findAll() function.)
+Create User: KeyValueParameter, Pass: password
+------------------------------------------------------------------------------------------------------------------------
+MongoDB:
+brew services start mongodb-community@4.2
+brew services stop mongodb-community@4.2
+
+brew services restart mongodb-community
+
+Insert documents:
+db.items.insertMany([
+   { item: "journal", status: "A" },
+   { item: "notebook", status: "B" }
+]);
+
+Delete documents:
+db.items.deleteMany({})
+
+show collections
+db.items.drop()  //To delete the collection.
+------------------------------------------------------------------------------------------------------------------------
+SpringBoot Application:
+Run the App with a profile from the jar: java -jar -Dspring.profiles.active=dev build/libs/learn-reactivespring-0.0.1-SNAPSHOT.jar
+------------------------------------------------------------------------------------------------------------------------
