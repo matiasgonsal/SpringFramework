@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="024dbee1-d92b-498d-98b1-efe3ada59d9c" activeEnvironment="Default" name="ParameterManager" resourceRoot="" soapui-version="5.6.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="9d84adbc-4fed-4f8a-8e7e-49c710cf5f2a" wsaVersion="NONE" name="ParameterManagerSoapBinding" type="wsdl" bindingName="{http://company.com/contract/servicecomponents/ParameterManager/v1-0}ParameterManagerSoapBinding" soapVersion="1_1" anonymous="optional" definition="file:/Users/matiasgonsalves/sts-workspace/ParameterManager/src/main/resources/wsdl/ParameterManager.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/Users/matiasgonsalves/sts-workspace/ParameterManager/src/main/resources/wsdl/ParameterManager.wsdl"><con:part><con:url>file:/Users/matiasgonsalves/sts-workspace/ParameterManager/src/main/resources/wsdl/ParameterManager.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://company.com/contract/servicecomponents/ParameterManager/v1-0" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://company.com/contract/servicecomponents/ParameterManager/v1-0" xmlns:parameterManager="http://company.com/schema/servicecomponents/ParameterManager/v1-0">
+  <wsdl:types>
+    <s:schema>
+      <s:import namespace="http://company.com/schema/servicecomponents/ParameterManager/v1-0" schemaLocation="../schemas/xsd/ParameterManager.xsd"/>
+      <s:import namespace="http://company.com/schema/servicecomponents/ParameterManager/v1-0" schemaLocation="../schemas/xsd/PutParameterManager.xsd"/>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetParameterManagerSoapIn">
+    <wsdl:part name="parameter" element="parameterManager:GetParameterRequest"/>
+  </wsdl:message>
+  <wsdl:message name="GetParameterManagerSoapOut">
+    <wsdl:part name="parameter" element="parameterManager:GetParameterResponse"/>
+  </wsdl:message>
+  <wsdl:message name="PutParameterManagerSoapIn">
+    <wsdl:part name="parameter" element="parameterManager:PutParameterRequest"/>
+  </wsdl:message>
+  <wsdl:message name="PutParameterManagerSoapOut">
+    <wsdl:part name="parameter" element="parameterManager:PutParameterResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="ParameterManagerPortType">
+    <wsdl:operation name="QueryParameterManager">
+      <wsdl:input message="tns:GetParameterManagerSoapIn"/>
+      <wsdl:output message="tns:GetParameterManagerSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="CreateParameterManager">
+      <wsdl:input message="tns:PutParameterManagerSoapIn"/>
+      <wsdl:output message="tns:PutParameterManagerSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ParameterManagerSoapBinding" type="tns:ParameterManagerPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="QueryParameterManager">
+      <soap:operation soapAction="http://tempuri.org/QueryParameterManager" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateParameterManager">
+      <soap:operation soapAction="http://tempuri.org/CreateParameterManager" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ParameterManagerService">
+    <wsdl:port name="ParameterManagerPort" binding="tns:ParameterManagerSoapBinding">
+      <soap:address location="http://localhost:80/servicecomponents/ParameterManager"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:/Users/matiasgonsalves/sts-workspace/ParameterManager/src/main/resources/schemas/xsd/ParameterManager.xsd</con:url><con:content><![CDATA[<xsd:schema elementFormDefault="qualified" targetNamespace="http://company.com/schema/servicecomponents/ParameterManager/v1-0" xmlns:tns="http://company.com/schema/servicecomponents/ParameterManager/v1-0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="GetParameterRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element maxOccurs="unbounded" minOccurs="1" name="Parameter">
+          <xsd:annotation>
+            <xsd:documentation>Array of parameters requested.</xsd:documentation>
+          </xsd:annotation>
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element maxOccurs="1" minOccurs="1" name="Category" type="xsd:string"/>
+              <xsd:element maxOccurs="1" minOccurs="1" name="Key" type="xsd:string"/>
+              <xsd:element maxOccurs="1" minOccurs="1" name="DefaultValue" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetParameterResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element maxOccurs="unbounded" minOccurs="1" name="Parameter">
+          <xsd:annotation>
+            <xsd:documentation>Array of resolved parameters.</xsd:documentation>
+          </xsd:annotation>
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element maxOccurs="1" minOccurs="1" name="Category" type="xsd:string"/>
+              <xsd:element maxOccurs="1" minOccurs="1" name="Key" type="xsd:string"/>
+              <xsd:element maxOccurs="1" minOccurs="1" name="Value" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:/Users/matiasgonsalves/sts-workspace/ParameterManager/src/main/resources/schemas/xsd/PutParameterManager.xsd</con:url><con:content><![CDATA[<xsd:schema elementFormDefault="qualified" targetNamespace="http://company.com/schema/servicecomponents/ParameterManager/v1-0" xmlns:tns="http://company.com/schema/servicecomponents/ParameterManager/v1-0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="PutParameterRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" name="Category" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="1" name="Key" type="xsd:string"/>
+        <xsd:element maxOccurs="1" minOccurs="1" name="Value" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="PutParameterResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" name="Created" type="xsd:boolean"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:80/servicecomponents/ParameterManager</con:endpoint></con:endpoints><con:operation id="0042f6d6-ec0d-4488-8970-650c0810611b" isOneWay="false" action="http://tempuri.org/QueryParameterManager" name="QueryParameterManager" bindingOperationName="QueryParameterManager" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8ab6b3b4-8642-4038-9607-77645068e12a" name="Request 1" outgoingWss="" incomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/servicecomponents/ParameterManager</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://company.com/schema/servicecomponents/ParameterManager/v1-0">
+   <soapenv:Header>
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-526D65BA9433E99C1316039982656301">
+            <wsse:Username>Matias</wsse:Username>
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">123</wsse:Password>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>
+      <v1:GetParameterRequest>
+         <!--1 or more repetitions:-->
+         <v1:Parameter>
+            <v1:Category>LEGACY_SERVICE</v1:Category>
+            <v1:Key>siebel</v1:Key>
+            <v1:DefaultValue>defaultValue</v1:DefaultValue>
+         </v1:Parameter>
+         <v1:Parameter>
+            <v1:Category>LEGACY_SERVICE</v1:Category>
+            <v1:Key>facebook</v1:Key>
+            <v1:DefaultValue>defaultValue</v1:DefaultValue>
+         </v1:Parameter>
+         <v1:Parameter>
+            <v1:Category>LEGACY_SERVICE</v1:Category>
+            <v1:Key>gradebook</v1:Key>
+            <v1:DefaultValue>defaultValue</v1:DefaultValue>
+         </v1:Parameter>
+         <v1:Parameter>
+            <v1:Category>LEGACY_SERVICE</v1:Category>
+            <v1:Key>kafka</v1:Key>
+            <v1:DefaultValue>defaultValue</v1:DefaultValue>
+         </v1:Parameter>
+         <v1:Parameter>
+            <v1:Category>unknownCase</v1:Category>
+            <v1:Key>unknownCase</v1:Key>
+            <v1:DefaultValue>defaultValue</v1:DefaultValue>
+         </v1:Parameter>
+      </v1:GetParameterRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>Admin</con:username><con:password>Admin</con:password><con:domain>Domain</con:domain><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:preemptive>false</con:preemptive><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/QueryParameterManager"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="c0e1ffca-a3fc-4df8-b360-b17befdd8e72" isOneWay="false" action="http://tempuri.org/CreateParameterManager" name="CreateParameterManager" bindingOperationName="CreateParameterManager" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6a330003-4cd9-4682-9147-e5414460081b" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/servicecomponents/ParameterManager</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://company.com/schema/servicecomponents/ParameterManager/v1-0">
+   <soapenv:Header>
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-526D65BA9433E99C1316039982656301">
+            <wsse:Username>Matias</wsse:Username>
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">123</wsse:Password>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>
+      <v1:PutParameterRequest>
+         <v1:Category>LEGACY_SERVICE</v1:Category>
+         <v1:Key>googleCloudServices</v1:Key>
+         <v1:Value>google.com</v1:Value>
+      </v1:PutParameterRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/CreateParameterManager"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

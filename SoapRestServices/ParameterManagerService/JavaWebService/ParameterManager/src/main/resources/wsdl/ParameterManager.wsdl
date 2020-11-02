@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+  targetNamespace="http://company.com/contract/servicecomponents/ParameterManager/v1-0"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:s="http://www.w3.org/2001/XMLSchema"
+  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+  xmlns:tns="http://company.com/contract/servicecomponents/ParameterManager/v1-0"
+  xmlns:parameterManager="http://company.com/schema/servicecomponents/ParameterManager/v1-0">
+  <wsdl:types>
+    <s:schema>
+      <s:import namespace="http://company.com/schema/servicecomponents/ParameterManager/v1-0" schemaLocation="../schemas/xsd/ParameterManager.xsd"/>
+      <s:import namespace="http://company.com/schema/servicecomponents/ParameterManager/v1-0" schemaLocation="../schemas/xsd/PutParameterManager.xsd"/>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetParameterManagerSoapIn">
+    <wsdl:part name="parameter" element="parameterManager:GetParameterRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetParameterManagerSoapOut">
+    <wsdl:part name="parameter" element="parameterManager:GetParameterResponse" />
+  </wsdl:message>
+  <wsdl:message name="PutParameterManagerSoapIn">
+    <wsdl:part name="parameter" element="parameterManager:PutParameterRequest" />
+  </wsdl:message>
+  <wsdl:message name="PutParameterManagerSoapOut">
+    <wsdl:part name="parameter" element="parameterManager:PutParameterResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ParameterManagerPortType">
+    <wsdl:operation name="QueryParameterManager">
+      <wsdl:input message="tns:GetParameterManagerSoapIn" />
+      <wsdl:output message="tns:GetParameterManagerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateParameterManager">
+      <wsdl:input message="tns:PutParameterManagerSoapIn" />
+      <wsdl:output message="tns:PutParameterManagerSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ParameterManagerSoapBinding" type="tns:ParameterManagerPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="QueryParameterManager">
+      <soap:operation soapAction="http://tempuri.org/QueryParameterManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateParameterManager">
+      <soap:operation soapAction="http://tempuri.org/CreateParameterManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ParameterManagerService">
+    <wsdl:port name="ParameterManagerPort" binding="tns:ParameterManagerSoapBinding">
+      <soap:address location="http://localhost:80/servicecomponents/ParameterManager" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

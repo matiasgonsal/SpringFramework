@@ -1,0 +1,119 @@
+----------------------------------------------------------- Java WebServices -----------------------------------------------------------
+What is a webService:
+It provides communication between a consumer and provider with loosely coupled integration.
+We can consume a webService from a java application and the webService could be written in python.
+It provides communication trough HTTP and different protocols like SOAP, XML, JSON, etc.
+
+Types of WebServices:
+SOAP: XML on HTTP POST
+RESTFul: Multiple Data Formats (XML, JSON, Text) on HTTP Methods (GET, PUT, POST)
+
+Each programming language or platform has its own standard or tool to implement WebServices:
+Ex:
+  Oracle: OSB, Weblogic.
+  Java:
+    *SOAP XML: JAX-WS
+    *REST: JAX-RS
+
+XSD Schemas:
+  root element: <schema>
+  elementFormDefault="qualified" -> every element on the XML will have the qualified namespace (ex: <tns:patientName>)
+  elementFormDefault="unqualified" -> every element on the XML will not have the qualified namespace (ex: <patientName>)
+  namespace, targetNamespace -> Like packages in java, It is used to give a space to the data, we can have multiple namesPaces within the same XML referring different data.
+  element -> tag element definition
+  attribute -> tag attributes definition
+  ComplexTypes -> Set of data
+  SimpleTypes -> single data type with restrictions (ex MaxLenght, enumeration, etc)
+
+  sequence = all element at the same order
+  all = all element without order
+  choice = one element or another
+  minOccurs=0(optional)
+  maxOccurs=unbounded (list)
+
+
+SOAP: Simple Object Access Protocol (Communication Standard Protocol) Exchange XML.
+<soap:Envelope>
+  <soap:Header>
+  </soap:Header>
+  <soap:Body>
+    <id></id>
+    <userName></userName>
+  </soap:Body>
+</soap:Envelope>
+
+WSDL:
+definitions
+  Types
+  Messages
+  Operation
+    input
+    output
+  Porttype
+    all operations
+
+  binding
+  service
+    service name, address and port.. etc.
+
+
+JAX-WS: Java API for XML WebServices (Standard Specification supported by different application servers like: Weblogic, WebSphere etc.)
+annotations for java classes that are read in runtime by the CXF or GlassFish WebServices Frameworks to take the actions.
+Ex:
+  @javax.jws.WebService -> CXF will know that this is an endpoint.
+  public class BillingService()
+
+  @javax.jws.WebMethod -> defines an operation of the service
+  public Bill getBill ()
+
+  @WebParam -> Used to define the request param to get from the XML request.
+  @WebResult -> Used to specify the response XML to be generated as a reponse.
+
+  @javax.xml.ws.WebFault -> Convert an exception to a Soap Fault.
+  MyException extends Exception
+
+  @javax.xml.ws.SOAPBinding -> specify a particular type of binding (document/literal -> default)
+
+  @javax.xml.ws.RequestWrapper -> It allows us to Wrap the request or response of the service to a different message or structure.
+  @javax.xml.ws.ResponseWrapper -> Same as above.
+
+JAXB: Java Architecture for XML Binding
+It provides functions to deal with XML files using java Objects.
+Java -> JAXB -> XML
+XML -> JAXB -> Java
+Tools: (During Compile)
+  XJC: Generates Java Classes from XML Schema
+  SCHEMAGEN: Generates XML Schema from Java Classes
+Tools: (During Runtime)
+  RUNTIME API: Marshall and UnMarshall XML to JAVA OBJECTS
+
+
+Apache CXF: Engine or Framework to create WebServices that allows the Developer to be focused on the business logic instead of the service communication, message serialization etc.
+  Uses spring to configure webServices.
+  SOAP and REST Engine to serialize XML or JSON to Java objects.
+  Tools: (cxf-codegen-plugin)
+    wsdl2java: Creates the java classes to implement the WebService from the wsdl file
+    java2wsdl: Creates a wsdl file from the Java Classes
+
+
+Soap Security Standards:
+1) WS-Security:
+  Authentication
+    * UserName Token profile
+    * X 508 Certificates
+    * SAML
+2) Confidentiality
+  Encryption and Decryption
+3) Integrity
+  * XML Signature
+
+MTOM - For exchanging files
+WS-Addressing - Asynchronous Callbacks
+WS-Policy -> Assert that consumers uses certain rules to call your webService (Ex: all consumers must use HTTPS)
+WS-SecurityPolicy -> Assert security requirements.
+
+JAX-WS Handlers -> Used develop cross cutting functionality to all the Soap Messages in a web Service for example.
+  Case Uses:
+    1) Develop an own Authentication feature with our own Soap Headers Tags.
+    2) Provide Cashing to the SOAP messages me receive.
+    3) Provide different versions based on the request for a web service.
