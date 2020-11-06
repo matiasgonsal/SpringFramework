@@ -50,7 +50,7 @@ public class ParameterManagerImpl implements ParameterManagerPortType {
 		*/
 		
 		//Same implementation with streams
-		System.out.println("This service version is using java stream API");
+		System.out.println("This service version is using java streams API");
 		List<GetParameterResponse.Parameter> responseParameters = parameter.getParameter().stream()
 			.map(requestParameter -> {
 				GetParameterResponse.Parameter responseParameter = responseFactory.createGetParameterResponseParameter();

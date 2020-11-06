@@ -11,5 +11,5 @@ public interface ParameterManagerRepository extends JpaRepository<ParameterManag
 	@Query("select p from ParameterManager p "
 			+ "where p.parameter_category = :category and p.parameter_key = :key")
 	public ParameterManager findValueByCategoryKey (@Param("category") String category, @Param("key") String key);
-
+	
 }

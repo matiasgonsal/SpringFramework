@@ -117,3 +117,32 @@ JAX-WS Handlers -> Used develop cross cutting functionality to all the Soap Mess
     1) Develop an own Authentication feature with our own Soap Headers Tags.
     2) Provide Cashing to the SOAP messages me receive.
     3) Provide different versions based on the request for a web service.
+
+
+Hibernate and JPA (Java Persistance API).
+Hibernate is a framework to translate the tables of a relational database into Java Classes. It recognizes java notations to represent the DB model into
+Java classes and work with it.
+@Entity
+@TableName
+@Column
+@Id
+@GeneratedValue
+@OneToMany
+@ManyToOne
+@Transactional
+@Inheritance (Used to define the InheritanceType for Abstract Classes, SubClasses)
+
+PersistenceContext: Every Step of a transaction modifies the data Using a persistence context that at the end, if every step is ok,
+it commits the changes to the database.
+  First Level Cash (Automatic): It is the cash used in the PersistenceContext for each transaction. If we have 2 users using the web Service, each user will be performing
+    a different transaction.. the first level cash will be cashing the data separately on each persistence context.
+  Second Level Cash (Needs configuration): It is used across all the transactions, regardless of the persistence context. If the first Transaction store data on the second level
+  cash, it will be available from the cash to the second transaction. It is used for common data across users.
+
+
+JPA introduces common functionalities to interact with hibernate and the database. We don't need to write the code to save an Entity or the query
+to insert a registry on the database. We can just use "save" from the interface "Repository" extending JpaRepository, CrudRepository or Repository.
+
+We can use JPAQL to write our own and complex queries using the Java Entities, JPA and Hibernate will translate that to DB language queries and perform it.
+We can use Hibernate NamedQueries and NativeQueries to write complex queries as well (It doesn't use the EntityManager so we would need to refresh the EntityManager to get the last updates after executing a native queries for example.).
+We can also use the EntityManager object to perform some custom methods to the DB persistence context: https://dzone.com/articles/accessing-the-entitymanager-from-spring-data-jpa
