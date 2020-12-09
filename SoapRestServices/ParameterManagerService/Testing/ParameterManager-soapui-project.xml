@@ -110,12 +110,6 @@
   </xsd:element>
 </xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:80/servicecomponents/ParameterManager</con:endpoint></con:endpoints><con:operation id="0042f6d6-ec0d-4488-8970-650c0810611b" isOneWay="false" action="http://tempuri.org/QueryParameterManager" name="QueryParameterManager" bindingOperationName="QueryParameterManager" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8ab6b3b4-8642-4038-9607-77645068e12a" name="Request 1" outgoingWss="" incomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/servicecomponents/cxf/ParameterManager</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://company.com/schema/servicecomponents/ParameterManager/v1-0">
    <soapenv:Header>
-      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
-         <wsse:UsernameToken wsu:Id="UsernameToken-526D65BA9433E99C1316039982656301">
-            <wsse:Username>Matias</wsse:Username>
-            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">123</wsse:Password>
-         </wsse:UsernameToken>
-      </wsse:Security>
    </soapenv:Header>
    <soapenv:Body>
       <v1:GetParameterRequest>
@@ -141,13 +135,18 @@
             <v1:DefaultValue>defaultValue</v1:DefaultValue>
          </v1:Parameter>
          <v1:Parameter>
+            <v1:Category>LEGACY_SERVICE</v1:Category>
+            <v1:Key>googleCloudServices</v1:Key>
+            <v1:DefaultValue>defaultValue</v1:DefaultValue>
+         </v1:Parameter>
+         <v1:Parameter>
             <v1:Category>unknownCase</v1:Category>
             <v1:Key>unknownCase</v1:Key>
             <v1:DefaultValue>defaultValue</v1:DefaultValue>
          </v1:Parameter>
       </v1:GetParameterRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:username>Admin</con:username><con:password>Admin</con:password><con:domain>Domain</con:domain><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:preemptive>false</con:preemptive><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/QueryParameterManager"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="c0e1ffca-a3fc-4df8-b360-b17befdd8e72" isOneWay="false" action="http://tempuri.org/CreateParameterManager" name="CreateParameterManager" bindingOperationName="CreateParameterManager" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6a330003-4cd9-4682-9147-e5414460081b" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/servicecomponents/cxf/ParameterManager</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://company.com/schema/servicecomponents/ParameterManager/v1-0">
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>Admin</con:username><con:password>Admin</con:password><con:domain>Domain</con:domain><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:preemptive>false</con:preemptive><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/QueryParameterManager"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="c0e1ffca-a3fc-4df8-b360-b17befdd8e72" isOneWay="false" action="http://tempuri.org/CreateParameterManager" name="CreateParameterManager" bindingOperationName="CreateParameterManager" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6a330003-4cd9-4682-9147-e5414460081b" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ParameterManager/cxf/ParameterManager</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://company.com/schema/servicecomponents/ParameterManager/v1-0">
    <soapenv:Header>
       <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
          <wsse:UsernameToken wsu:Id="UsernameToken-526D65BA9433E99C1316039982656301">
@@ -160,7 +159,7 @@
       <v1:PutParameterRequest>
          <v1:Category>LEGACY_SERVICE</v1:Category>
          <v1:Key>googleCloudServices</v1:Key>
-         <v1:Value>google.com</v1:Value>
+         <v1:Value>google.com.updated</v1:Value>
       </v1:PutParameterRequest>
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/CreateParameterManager"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

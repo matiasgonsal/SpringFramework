@@ -8,6 +8,7 @@ Types of WebServices:
 SOAP: XML on HTTP POST
 RESTFul: Multiple Data Formats (XML, JSON, Text) on HTTP Methods (GET, PUT, POST)
 
+STANDARD
 Each programming language or platform has its own standard or tool to implement WebServices:
 Ex:
   Oracle: OSB, Weblogic.
@@ -115,12 +116,12 @@ WS-SecurityPolicy -> Assert security requirements.
 JAX-WS Handlers -> Used develop cross cutting functionality to all the Soap Messages in a web Service for example.
   Case Uses:
     1) Develop an own Authentication feature with our own Soap Headers Tags.
-    2) Provide Cashing to the SOAP messages me receive.
+    2) Provide Cashing to the SOAP messages we receive.
     3) Provide different versions based on the request for a web service.
 
 
 Hibernate and JPA (Java Persistance API).
-Hibernate is a framework to translate the tables of a relational database into Java Classes. It recognizes java notations to represent the DB model into
+Hibernate is a framework to translate the tables of a relational database into Java Classes. It recognizes java annotations to represent the DB model into
 Java classes and work with it.
 @Entity
 @TableName
